@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour, IDamageable, IGravityOut
     [SerializeField] protected float _hp;
     [SerializeField] protected float _maxHp;
     [SerializeField] protected float _speed;
-    [SerializeField] protected float _damage;
+    [SerializeField] public float _damage;
     [SerializeField] protected float _gravityForce;
     [SerializeField] protected float _radioBusqueda;
     [SerializeField] protected float _cooldownBusqueda;

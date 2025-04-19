@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         Gravedad();
 
         Movement();
-
     }
 
     void Gravedad()
