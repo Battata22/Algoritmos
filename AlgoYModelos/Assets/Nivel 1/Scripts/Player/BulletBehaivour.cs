@@ -24,7 +24,16 @@ public class BulletBehaivour : PlayerWeapon
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other != null)
+        {
+            if (other.gameObject.GetComponent<IDamageable>() != null)
+            {
+                other.GetComponent<IDamageable>().TakeDamage(_damage);
+            }
+
+            Destroy(gameObject);
+
+        }
     }
 
     #region Dano

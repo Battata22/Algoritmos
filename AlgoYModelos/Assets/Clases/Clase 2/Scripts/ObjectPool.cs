@@ -11,13 +11,13 @@ public class ObjectPool <T>
     Action<T> _off;
 
 
-    public ObjectPool(Func<T> factory, Action<T> pbjOn, Action<T> objOff, int currentStock = 5)
+    public ObjectPool(Func<T> factory, Action<T> prenderObj, Action<T> apagarObj, int actualStock = 5)
     {
         _factory = factory;
-        _on = pbjOn;
-        _off = objOff;
+        _on = prenderObj;
+        _off = apagarObj;
 
-        for (int i = 0; i < currentStock; i++)
+        for (int i = 0; i < actualStock; i++)
         {
             var x = factory();
             _off(x);
@@ -29,16 +29,21 @@ public class ObjectPool <T>
     {
         T x;
 
+        //Chequear si la lista esta vacia
         if (_stock.Count > 0)
         {
+            //Agarra el primero
             x = _stock[0];
+            //Lo saca de la lista de stock
             _stock.Remove(x);
         }
-        else
+        else //Si no hay nada en la lista de stock
         {
+            //Spawnea uno
             x = _factory();
         }
 
+        //Lo prendemos por las dudas
         _on(x);
 
         return x;
