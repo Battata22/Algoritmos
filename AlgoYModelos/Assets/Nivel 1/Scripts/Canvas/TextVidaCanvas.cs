@@ -14,10 +14,6 @@ public class TextVidaCanvas : MonoBehaviour, IObserver_
     {
         _vidatext = GetComponent<TextMeshProUGUI>();
 
-    }
-
-    void Start()
-    {
         _player = EntitiesManager.Instance.Player;
 
         if (_player.GetComponent<IObservable_>() != null)

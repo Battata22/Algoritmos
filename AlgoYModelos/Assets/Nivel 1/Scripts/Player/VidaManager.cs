@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VidaManager : MonoBehaviour, IObservable_
 {
@@ -15,6 +16,9 @@ public class VidaManager : MonoBehaviour, IObservable_
     [SerializeField] float _maxHp;
     [SerializeField] float _invulnerabilityTime;
     [SerializeField] float _waitInvulnerability;
+
+    [SerializeField] float _restartTime;
+    float _waitRestart;
 
     void Start()
     {
@@ -32,13 +36,14 @@ public class VidaManager : MonoBehaviour, IObservable_
     void Update()
     {
         _waitInvulnerability += Time.deltaTime;
+        _waitRestart += Time.deltaTime;
     }
 
     public void TakeDamage(float damage)
     {
         if (_waitInvulnerability >= _invulnerabilityTime)
         {
-            if (_hp > 0)
+            if (_hp > damage)
             {
                 _hp -= damage;
                 _waitInvulnerability = 0;
@@ -51,10 +56,26 @@ public class VidaManager : MonoBehaviour, IObservable_
             }
             else
             {
+                _hp = 0;
+
+                foreach (var observer in _observers)
+                {
+                    observer.Notify(Hp);
+                }
+
                 Debug.Log("Muerto " + _hp);
+                StartCoroutine(Restart());
+
             }
 
         }
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(_restartTime);
+        
+        SceneManager.LoadScene(0);
     }
 
     public void Suscribe(IObserver_ observer)

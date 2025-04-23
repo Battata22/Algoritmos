@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerBehaivour : MonoBehaviour
@@ -42,10 +43,11 @@ public class PlayerBehaivour : MonoBehaviour
 
     private void Update()
     {
-
         _model.FakeUpdate();
         _view.FakeUpdate();
         _controller.FakeUpdate();
+
+        LifeSaver();
     }
 
     private void FixedUpdate()
@@ -54,9 +56,12 @@ public class PlayerBehaivour : MonoBehaviour
         _controller.FakeFixedUpdate();
     }
 
-    public void TakeDamage()
+    void LifeSaver()
     {
-
+        if (transform.position.y <= -10)
+        {
+            transform.position = new Vector3(7f, 3f, -97.5f);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

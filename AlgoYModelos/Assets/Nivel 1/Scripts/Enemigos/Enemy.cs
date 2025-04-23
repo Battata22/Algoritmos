@@ -54,7 +54,15 @@ public class Enemy : MonoBehaviour, IDamageable, IGravityOut
         else if (_hp <= 0) 
         {
             //Destroy(gameObject);
-            _pool.GetBack(this);
+            if (_pool != null)
+            {
+                _pool.GetBack(this);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
         }
     }
 

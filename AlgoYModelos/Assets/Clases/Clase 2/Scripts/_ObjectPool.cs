@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class ObjectPool <T>
+public class _ObjectPool <T>
 {
     List<T> _stock = new List<T>();
     Func<T> _factory;
@@ -11,7 +11,7 @@ public class ObjectPool <T>
     Action<T> _off;
 
 
-    public ObjectPool(Func<T> factory, Action<T> prenderObj, Action<T> apagarObj, int actualStock = 5)
+    public _ObjectPool(Func<T> factory, Action<T> prenderObj, Action<T> apagarObj, int actualStock = 5)
     {
         _factory = factory;
         _on = prenderObj;
