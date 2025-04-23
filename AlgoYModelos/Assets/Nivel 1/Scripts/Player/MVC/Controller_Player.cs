@@ -7,6 +7,7 @@ public class Controller_Player
     Model_Player _model;
     Transform _transform;
     float _xAxis, _zAxis;
+
     public Controller_Player(Model_Player model, Transform transform)
     {
         _model = model;
@@ -30,4 +31,6 @@ public class Controller_Player
 
         _model.Movement(_transform, _xAxis, _zAxis);
     } 
+
+
 }

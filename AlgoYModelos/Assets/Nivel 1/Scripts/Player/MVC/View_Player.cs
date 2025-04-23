@@ -19,16 +19,17 @@ public class View_Player
     
     public void FakeUpdate()
     {
-        
+
     }
 
     public void Move()
     {
-        Debug.Log("Me muevo");
+        //Debug.Log("Me muevo");
     }
 
     public void Jump()
     {
-        Debug.Log("Salto");
+        //Debug.Log("Salto");
     }
+
 }
