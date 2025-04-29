@@ -6,6 +6,7 @@ public class SpawnerBehaviour : MonoBehaviour
 {
     [SerializeField] float _distSpawneo;
     [SerializeField] float _spawnerCooldown;
+    [SerializeField] ParticleSystem _part;
     float distMinimaSpawneo = 0.5f;
     float waitSpawner;
 
@@ -19,7 +20,7 @@ public class SpawnerBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+        _part = GetComponentInChildren<ParticleSystem>();
     }
 
     
@@ -35,6 +36,7 @@ public class SpawnerBehaviour : MonoBehaviour
         {
             var enemy = _poolEnemies.Get();
             waitSpawner = 0;
+            _part.Play();
         }
     }
 
