@@ -52,7 +52,7 @@ public class BulletBehaivour : PlayerWeapon
                 other.GetComponent<IDamageable>().TakeDamage(_damage);
             }
 
-            print("choque con " + other.name);
+            //print("choque con " + other.name);
             _pool.GetBack(this);
             _waitDestroy = 0;
             //Destroy(gameObject);

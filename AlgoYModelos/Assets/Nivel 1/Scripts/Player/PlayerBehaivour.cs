@@ -61,7 +61,7 @@ public class PlayerBehaivour : MonoBehaviour
     {
         if (transform.position.y <= -10)
         {
-            transform.position = new Vector3(7f, 3f, -97.5f);
+            transform.position = new Vector3(25.2f, 1.30f, -62.6f);
         }
     }
 
