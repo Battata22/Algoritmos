@@ -13,6 +13,8 @@ public class PlayerCameraControl : MonoBehaviour
     float _mouseX, _mouseY;
     float _xRotation, _yRotation;
 
+    public bool menu = false;
+
     void Start()
     {
         _cam = Camera.main.gameObject;
@@ -31,7 +33,25 @@ public class PlayerCameraControl : MonoBehaviour
         _cam.transform.position = _cameraHolder.transform.position;
         _cam.transform.rotation = _cameraHolder.transform.rotation;
 
+        if (!menu)
+        {
+            MoveUpdate();
+        }
 
+    }
+
+    private void FixedUpdate()
+    {
+
+        if (!menu)
+        {
+            MoveFixed();
+        }
+
+    }
+
+    public void MoveUpdate()
+    {
         //Rotacion de la camara
         _mouseX = Input.GetAxis("Mouse X") * Time.fixedDeltaTime * _sensibilidad;
         _mouseY = Input.GetAxis("Mouse Y") * Time.fixedDeltaTime * _sensibilidad;
@@ -40,14 +60,12 @@ public class PlayerCameraControl : MonoBehaviour
         _xRotation -= _mouseY;
 
         _xRotation = Mathf.Clamp(_xRotation, -89f, 89f);
-
     }
 
-    private void FixedUpdate()
+    public void MoveFixed()
     {
         transform.localRotation = Quaternion.Euler(0, _yRotation, 0);
 
         _cameraHolder.transform.localRotation = Quaternion.Euler(_xRotation, 0, 0);
     }
-
 }
