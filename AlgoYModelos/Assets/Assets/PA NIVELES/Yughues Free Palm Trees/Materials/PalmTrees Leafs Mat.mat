@@ -21,11 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PalmTrees Leafs Mat
-  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 99134b1f0c27d54469a840832a28fadf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ValidKeywords:
+  - EFFECT_BUMP
+  - _WINDQUALITY_NONE
+  m_InvalidKeywords:
+  - BACKFACE_NORMAL_MODE_MIRROR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -40,7 +43,15 @@ Material:
         m_Texture: {fileID: 2800000, guid: 35651144e1d82d9428c70a87fa6e77a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ExtraTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -53,6 +64,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubsurfaceTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -70,23 +85,41 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cutoff: 0.2857143
-    - _Glossiness: 0.31
+    - BACKFACE_NORMAL_MODE: 1
+    - EFFECT_BILLBOARD: 0
+    - EFFECT_EXTRA_TEX: 1
+    - _AlphaClipThreshold: 0.358
+    - _BillboardKwToggle: 0
+    - _BillboardShadowFade: 0.5
+    - _Cull: 2
+    - _Cutoff: 0.503
+    - _Glossiness: 0.052
+    - _HueVariationKwToggle: 0
     - _Metallic: 0
+    - _NormalMapKwToggle: 1
+    - _OldHueVarBehavior: 0
     - _Opacity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shininess: 0.033035718
+    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceKwToggle: 0
+    - _TwoSided: 0
     - _UseColorMap: 1
     - _UseEmissiveMap: 0
     - _UseMetallicMap: 0
     - _UseNormalMap: 1
     - _UseOpacityMap: 1
     - _UseRoughnessMap: 0
+    - _WINDQUALITY: 2
+    - _WindQuality: 0
     m_Colors:
-    - _Color: {r: 0.83137256, g: 0.83137256, b: 0.83137256, a: 1}
+    - _Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _SpecColor: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
+    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
