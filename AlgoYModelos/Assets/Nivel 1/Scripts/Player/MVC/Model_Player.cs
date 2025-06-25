@@ -17,7 +17,9 @@ public class Model_Player
     float _yVelocity;
     float _gravedadMult;
 
-    public Model_Player(float speed, float jumpForce, CharacterController cc, Vector3 direccion, float gravedad, float yVelocity, float gravedadMult)
+    ParticleSystem _partSalto;
+
+    public Model_Player(float speed, float jumpForce, CharacterController cc, Vector3 direccion, float gravedad, float yVelocity, float gravedadMult, ParticleSystem partSalto)
     {
         _speed = speed;
         _jumpForce = jumpForce;
@@ -26,6 +28,7 @@ public class Model_Player
         _gravedad = gravedad;
         _yVelocity = yVelocity;
         _gravedadMult = gravedadMult;
+        _partSalto = partSalto;
     }
 
     public void FakeStart()
@@ -72,8 +75,8 @@ public class Model_Player
         if (_cc.isGrounded == true)
         {
             _yVelocity += _jumpForce;
+            _partSalto.Play();
         }
-
     }
 
 

@@ -27,10 +27,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _ActivePickUp: 1
+    - _ActivePickUp: 0
+    - _FakeTime: 95.2146
     - _Intensidad: 2.4
     - _Speed: 9.4
-    - _powerLenght: 6.5
+    - _powerLenght: 2.42
     m_Colors:
     - _Color: {r: 0.7799085, g: 0.9622642, b: 0.27687788, a: 0}
     - _Out_Min_Max: {r: 0.2, g: 0.42, b: 0, a: 0}

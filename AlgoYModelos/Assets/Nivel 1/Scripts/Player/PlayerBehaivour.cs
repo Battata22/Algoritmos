@@ -24,6 +24,7 @@ public class PlayerBehaivour : MonoBehaviour
 
     [SerializeField] Animator _animController;
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] ParticleSystem _particleSystem;
 
     private void Awake()
     {
@@ -31,8 +32,9 @@ public class PlayerBehaivour : MonoBehaviour
 
         _cc = GetComponent<CharacterController>();
         _vidaManager = GetComponent<VidaManager>();
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
 
-        _model = new(_speed, _jumpForce, _cc, _direccion, _gravedad, _yVelocity, _gravedadMult);
+        _model = new(_speed, _jumpForce, _cc, _direccion, _gravedad, _yVelocity, _gravedadMult, _particleSystem);
         _view = new(_model, _animController, _audioSource);
         _controller = new(_model, transform);
     }

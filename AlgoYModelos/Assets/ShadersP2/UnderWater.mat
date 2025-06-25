@@ -28,6 +28,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ActivadorWater: 0
+    - _Activo: 0
     - _DistorsionSpeed: 0.2
     - _FuerzaBlending: 0.008
     - _NoiseScale: 88.27
