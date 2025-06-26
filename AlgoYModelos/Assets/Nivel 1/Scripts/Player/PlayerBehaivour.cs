@@ -14,7 +14,7 @@ public class PlayerBehaivour : MonoBehaviour
     [SerializeField] float _damage;
     [SerializeField] float _speed;
     [SerializeField] float _jumpForce;
-    CharacterController _cc;
+    public CharacterController _cc;
 
     Vector3 _direccion;
 

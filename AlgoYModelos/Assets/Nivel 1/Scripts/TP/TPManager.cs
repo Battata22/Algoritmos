@@ -108,7 +108,10 @@ public class TPManager : MonoBehaviour
         yield return new WaitForSeconds(tiempoAjuste);
 
         //tp player
+        EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = false;
         playerTransform.position = puntosDeTp[0].position;
+        EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = true;
+
 
         //esperar al final
         yield return new WaitForSeconds(tiempoAjuste);
@@ -126,7 +129,9 @@ public class TPManager : MonoBehaviour
         yield return new WaitForSeconds(tiempoAjuste);
 
         //tp player
+        EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = false;
         playerTransform.position = puntosDeTp[1].position;
+        EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = true;
 
         //esperar al final
         yield return new WaitForSeconds(tiempoAjuste);
@@ -144,7 +149,9 @@ public class TPManager : MonoBehaviour
         yield return new WaitForSeconds(tiempoAjuste);
 
         //tp player
+        EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = false;
         playerTransform.position = puntosDeTp[2].position;
+        EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = true;
 
         //esperar al final
         yield return new WaitForSeconds(tiempoAjuste);
