@@ -17,6 +17,23 @@ MonoBehaviour:
   injectionPoint: 600
   requirements: 4
   passIndex: 0
+--- !u!114 &-5840675027491268511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
+  m_Name: SprintEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  passMaterial: {fileID: 2100000, guid: dd0da8903f4f78142ac93f8c4ce5755e, type: 2}
+  injectionPoint: 600
+  requirements: 4
+  passIndex: 0
 --- !u!114 &-5527722975216096937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,7 +44,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
-  m_Name: FullScreenPassRendererFeature
+  m_Name: Quemadura
   m_EditorClassIdentifier: 
   m_Active: 1
   passMaterial: {fileID: 2100000, guid: c1ed5432ee97e634981126679015997e, type: 2}
@@ -127,7 +144,10 @@ MonoBehaviour:
   - {fileID: -354053247869448021}
   - {fileID: 9188255360246936592}
   - {fileID: -5527722975216096937}
-  m_RendererFeatureMap: adc0de57c6d2eee5948ccd965eb565a4a78cf6fcebf7370b34cce217c2a724c2ab102b69722616fb10f41895913d837f57a97abd3d9549b3
+  - {fileID: 3526213208319240158}
+  - {fileID: 6507794308745208050}
+  - {fileID: -5840675027491268511}
+  m_RendererFeatureMap: adc0de57c6d2eee5948ccd965eb565a4a78cf6fcebf7370b34cce217c2a724c2ab102b69722616fb10f41895913d837f57a97abd3d9549b3dea728f43aa0ef30f22011ac7154505a6158e3f901c1f1ae
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -185,6 +205,40 @@ MonoBehaviour:
   m_Active: 0
   passMaterial: {fileID: 2100000, guid: 872bfb55751f52e4a8a4faf2593f3b4a, type: 2}
   injectionPoint: 550
+  requirements: 4
+  passIndex: 0
+--- !u!114 &3526213208319240158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
+  m_Name: GuisoCuracion
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  passMaterial: {fileID: 2100000, guid: a3b2afbeef8633945867d3d23136327d, type: 2}
+  injectionPoint: 600
+  requirements: 4
+  passIndex: 0
+--- !u!114 &6507794308745208050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
+  m_Name: VinetaPausa
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  passMaterial: {fileID: 2100000, guid: df9fa9e2bc024494a9c6fb140d6d5381, type: 2}
+  injectionPoint: 600
   requirements: 4
   passIndex: 0
 --- !u!114 &9188255360246936592
