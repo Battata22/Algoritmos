@@ -67,7 +67,7 @@ public class Model_Player
         _direccion.x = dir.x;
         _direccion.z = dir.z;
 
-        _cc.Move(_direccion * Time.fixedDeltaTime * _speed);
+        _cc.Move(_direccion * Time.fixedDeltaTime * EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._speed);
     }
 
     public void Jump()

@@ -12,7 +12,8 @@ public class PlayerBehaivour : MonoBehaviour
     VidaManager _vidaManager;
 
     [SerializeField] float _damage;
-    [SerializeField] float _speed;
+    public float _speed;
+    float _baseSpeed;
     [SerializeField] float _jumpForce;
     public CharacterController _cc;
 
@@ -42,6 +43,7 @@ public class PlayerBehaivour : MonoBehaviour
     void Start()
     {
         _model.FakeStart();
+        _baseSpeed = _speed;
     }
 
     private void Update()
@@ -51,6 +53,19 @@ public class PlayerBehaivour : MonoBehaviour
         _controller.FakeUpdate();
 
         LifeSaver();
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (_speed == _baseSpeed)
+            {
+                _speed = _baseSpeed * 2;
+
+            }
+        }
+        else
+        {
+            _speed = _baseSpeed;
+        }
     }
 
     private void FixedUpdate()
@@ -73,6 +88,14 @@ public class PlayerBehaivour : MonoBehaviour
         {
             var col = collision.gameObject.GetComponent<Enemy>();
             _vidaManager.TakeDamage(col._damage);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "fuegoo")
+        {
+            PPFinales.instance.PrenderQuemado();
         }
     }
 

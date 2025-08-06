@@ -16,7 +16,12 @@ public class PickUpPlayer : MonoBehaviour
             if (Physics.Raycast(ray, out hit, rayDistance, layerMask) && hit.collider.TryGetComponent<PickUp>(out PickUp pickeable))
             {
                 pickeable.PickUp();
-                Debug.Log("Hit: " + hit.collider.gameObject.name);
+                //Debug.Log("Hit: " + hit.collider.gameObject.name);
+            }
+
+            if (Physics.Raycast(ray, out hit, rayDistance, 11) && hit.collider.name == "HoldersT")
+            {
+                PPFinales.instance.PrenderPPGuiso();
             }
         }
     }

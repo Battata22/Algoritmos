@@ -28,9 +28,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaPower: 1.65
+    - _Prendido: 0
     - _Vi_etaPower: 2.29
     m_Colors:
-    - _ColorVi_eta: {r: 0.745283, g: 0.745283, b: 0.745283, a: 0}
+    - _ColorVi_eta: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1820768446539222448
 MonoBehaviour:
