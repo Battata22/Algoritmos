@@ -48,7 +48,7 @@ Material:
     - _EspumaTilling: 1.15
     - _FoamDepth: 0.52
     - _FoamFalloff: 0.42
-    - _FoamSize: 0.66
+    - _FoamSize: 1.96
     - _NoiseOlaScale: 4.22
     - _NormalScale: 128.72
     - _NormalScale2: 71.7
@@ -59,7 +59,8 @@ Material:
     - _alphaSize: 0
     - _causticCutOut: 0.14
     - _distance: 1.96
-    - _espumaSpeedX: 0
+    - _espumaSpeedX: 0.22
+    - _espumaSpeedY: 0.2
     - _fallOff: 1.06
     - _maxEspuma: 0.25
     - _minEspuma: 0.3
@@ -73,5 +74,5 @@ Material:
     - _Base_Color: {r: 0, g: 0.77669907, b: 1, a: 0.8156863}
     - _CautiscColor: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDepthFade: {r: 0.4764151, g: 1, b: 0.95821387, a: 0}
-    - _ColorEspuma: {r: 0.990566, g: 0.990566, b: 0.990566, a: 0.21960784}
+    - _ColorEspuma: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

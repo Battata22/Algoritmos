@@ -35,5 +35,5 @@ Material:
     - _clampMax: 1
     - _saturation: 0.13
     m_Colors:
-    - _ColorVignette: {r: 0.56078434, g: 0.2988285, b: 0, a: 0}
+    - _ColorVignette: {r: 1.39772, g: 0.7953579, b: 0.11208134, a: 0}
   m_BuildTextureStacks: []
