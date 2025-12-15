@@ -5,19 +5,15 @@ using UnityEngine.UIElements;
 
 public class ShootingManager : MonoBehaviour
 {
-    [SerializeField] GameObject _bulletPrefab;
-    [SerializeField] public Transform _bulletSpawnPoint;
-    [SerializeField] Vector3 test;
-
+    public Transform _bulletSpawnPoint;
     [SerializeField] BulletBehaivour _bullet;
+    public bool HasCrossbow;
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && HasCrossbow)
         {
-            //Shoot();
-
             Instantiate(_bullet, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
         }
     }

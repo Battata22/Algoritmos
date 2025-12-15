@@ -7,12 +7,14 @@ public class PickUpLibro : MonoBehaviour, PickUp
     [SerializeField] Material _PPPickUp;
     [SerializeField] float tiempoShader;
     [SerializeField] float temp;
+    [SerializeField] ShootingManager shootingManager;
+    [SerializeField] GameObject _crossbowCanvas;
     public void PickUp()
     {
-        //activar efecto
         StartCoroutine(ActivarShader());
-        //Destroy(gameObject);
         transform.position = new Vector3(11111, 0, 11111);
+        shootingManager.HasCrossbow = true;
+        _crossbowCanvas.SetActive(true);
     }
 
     private void Start()
