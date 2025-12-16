@@ -6,21 +6,20 @@ public class BulletBehaivour : PlayerWeapon
 {
     [SerializeField] float _speed;
     [SerializeField] float _selfDestroyTime;
-    [SerializeField] Vector3 _dir;
 
     private void Start()
     { 
         Destroy(gameObject, _selfDestroyTime);
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         Avance();
     }
 
     void Avance()
     {
-        transform.position += (transform.forward * _speed * Time.deltaTime);
+        transform.position += (transform.forward * _speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
