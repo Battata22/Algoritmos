@@ -44,7 +44,9 @@ Material:
     - _normalSpeed: 0.05
     - _speedolasX: 0.12
     - _speedolasY: 0.09
-    m_Colors: []
+    m_Colors:
+    - _LavaColor: {r: 0.7176471, g: 0.38245335, b: 0, a: 0}
+    - _OutlineColor: {r: 0.016551154, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1039029474594972115
 MonoBehaviour:
