@@ -28,7 +28,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ActivePickUp: 0
-    - _FakeTime: 12.312248
+    - _FakeTime: 0.04
     - _Intensidad: 2.4
     - _Speed: 9.4
     - _powerLenght: 2.42
