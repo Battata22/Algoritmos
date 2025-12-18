@@ -15,6 +15,8 @@ public class PlayerCameraControl : MonoBehaviour
 
     public bool menu = false;
 
+    public bool Cinematica = false;
+
     void Start()
     {
         _cam = Camera.main.gameObject;
@@ -28,16 +30,16 @@ public class PlayerCameraControl : MonoBehaviour
 
     void Update()
     {
-        //Seguimiento de la camara al player
-        //_cam.transform.position = new Vector3(_player.transform.position.x/* + _distFromPlayer*/, _player.transform.position.y + _fixedY, _player.transform.position.z + _fixedZ);
-        _cam.transform.position = _cameraHolder.transform.position;
-        _cam.transform.rotation = _cameraHolder.transform.rotation;
-
-        if (!menu)
+        if (!Cinematica)
         {
-            MoveUpdate();
-        }
+            _cam.transform.position = _cameraHolder.transform.position;
+            _cam.transform.rotation = _cameraHolder.transform.rotation;
 
+            if (!menu)
+            {
+                MoveUpdate();
+            }
+        }
     }
 
     private void FixedUpdate()

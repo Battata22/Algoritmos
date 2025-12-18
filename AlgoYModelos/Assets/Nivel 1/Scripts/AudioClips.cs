@@ -12,5 +12,6 @@ public class AudioClips : MonoBehaviour
     }
 
     public AudioClip[] _madera;
+    public AudioClip OpenDoor;
 
 }

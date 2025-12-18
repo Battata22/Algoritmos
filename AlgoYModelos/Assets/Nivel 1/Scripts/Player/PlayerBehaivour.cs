@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -27,8 +28,12 @@ public class PlayerBehaivour : MonoBehaviour
     [SerializeField] AudioSource _audioSource;
     [SerializeField] ParticleSystem _particleSystem;
 
+    public bool HasKey = false;
+
     private void Awake()
     {
+        Application.targetFrameRate = 60;
+
         EntitiesManager.Instance.Player = gameObject;
 
         _cc = GetComponent<CharacterController>();

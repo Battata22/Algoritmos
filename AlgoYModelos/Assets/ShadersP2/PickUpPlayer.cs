@@ -5,6 +5,7 @@ public class PickUpPlayer : MonoBehaviour
 
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask layerMask;
+    [SerializeField] AudioSource _audioSource;
 
     void Update()
     {
@@ -16,6 +17,7 @@ public class PickUpPlayer : MonoBehaviour
             if (Physics.Raycast(ray, out hit, rayDistance, layerMask) && hit.collider.TryGetComponent<PickUp>(out PickUp pickeable))
             {
                 pickeable.PickUp();
+                _audioSource.Play();
                 //Debug.Log("Hit: " + hit.collider.gameObject.name);
             }
 
