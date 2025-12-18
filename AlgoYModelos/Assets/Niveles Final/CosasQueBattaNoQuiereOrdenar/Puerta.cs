@@ -16,14 +16,6 @@ public class Puerta : MonoBehaviour
         _anim = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ActivateDoor();
-        }
-    }
-
     public void ActivateDoor()
     {
         _anim.SetTrigger("Abrir");

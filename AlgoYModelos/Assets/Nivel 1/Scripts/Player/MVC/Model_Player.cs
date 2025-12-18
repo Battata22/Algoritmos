@@ -62,12 +62,18 @@ public class Model_Player
 
     public void Movement(Transform transform,float _xAxis, float _zAxis)
     {
-        Vector3 dir = (transform.right * _xAxis + transform.forward * _zAxis).normalized;
 
-        _direccion.x = dir.x;
-        _direccion.z = dir.z;
+        if (!EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>().quieto)
+        {
+            Vector3 dir = (transform.right * _xAxis + transform.forward * _zAxis).normalized;
 
-        _cc.Move(_direccion * Time.fixedDeltaTime * EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._speed);
+            _direccion.x = dir.x;
+            _direccion.z = dir.z;
+
+            _cc.Move(_direccion * Time.fixedDeltaTime * EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._speed);
+
+        }
+
     }
 
     public void Jump()
@@ -75,7 +81,12 @@ public class Model_Player
         if (_cc.isGrounded == true)
         {
             _yVelocity += _jumpForce;
-            _partSalto.Play();
+            //_partSalto.Play();
+            if (!EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>().quieto)
+            {
+                EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._saltoSource.Play();
+
+            }
         }
     }
 

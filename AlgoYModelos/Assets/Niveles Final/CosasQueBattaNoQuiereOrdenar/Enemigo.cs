@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,7 +17,7 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] Puerta[] _puertas;
 
     [SerializeField] Animator _anim;
-    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _audioSource, _audioSourceAtaque;
     [SerializeField] AudioClip _ataque, _caminata, _muerte;
     [SerializeField] float _tiempoSonidoAtaque;
 
@@ -25,7 +26,6 @@ public class Enemigo : MonoBehaviour, IDamageable
     private void Start()
     {
         _anim = GetComponent<Animator>();
-        _audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(CheckForTarget());
     }
@@ -37,17 +37,17 @@ public class Enemigo : MonoBehaviour, IDamageable
 
     IEnumerator Death()
     {
+        ChangeAnimState(AnimState.Death);
+        _audioSource.PlayOneShot(_muerte);
+
+        yield return new WaitForSeconds(1);
+
         foreach (var puerta in _puertas)
         {
             puerta.ActivateDoor();
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(1f);
         }
 
-        ChangeAnimState(AnimState.Death);
-
-        //reproducir sonido
-        //_audioSource.clip = _muerte;
-        //_audioSource.Play();
     }
 
     void ChangeAnimState(AnimState state)
@@ -67,15 +67,29 @@ public class Enemigo : MonoBehaviour, IDamageable
 
         ChangeAnimState(AnimState.Attack);
 
-        yield return new WaitForSeconds(_tiempoSonidoAtaque);
+        yield return null;
+    }
 
-        _audioSource.clip = _muerte;
-        _audioSource.Play();
+    public void Attack()
+    {
+        _audioSourceAtaque.Play();
+
+        if (Vector3.Distance(transform.position, _player.position) <= _closeEnoughRange)
+        {
+            EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = false;
+            _player.position = new Vector3(25.2f, 1.30f, -62.6f);
+            EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = true;
+        }
     }
 
     IEnumerator CheckForTarget()
     {
-        if (muerto) yield return null;
+        if (muerto)
+        {
+            _agent.isStopped = true;
+            _agent.SetDestination(transform.position);
+            yield break;
+        }
 
         _overlapse = Physics.OverlapSphere(transform.position, _radioFov);
 
@@ -112,11 +126,34 @@ public class Enemigo : MonoBehaviour, IDamageable
         Gizmos.DrawWireSphere(transform.position, _radioFov);
     }
 
+    [SerializeField] int vida = 3;
+    [SerializeField] float tiempoRojo;
+    public Material _ogMat, rojo;
+    [SerializeField] Renderer _renderer1, _renderer2;
+
     public void TakeDamage(float a)
     {
-        muerto = true;
-        StartCoroutine(Death());
-        GetComponent<Collider>().enabled = false;
+        vida--;
+
+        _audioSource.Play();
+
+        StartCoroutine(ChangeColor());
+
+        if (vida <= 0)
+        {
+            muerto = true;
+            StartCoroutine(Death());
+            GetComponent<Collider>().enabled = false;
+        }
+    }
+
+    IEnumerator ChangeColor()
+    {
+        _renderer1.material = rojo;
+        _renderer2.material = rojo;
+        yield return new WaitForSeconds(tiempoRojo);
+        _renderer1.material = _ogMat;
+        _renderer2.material = _ogMat;
     }
 }
 

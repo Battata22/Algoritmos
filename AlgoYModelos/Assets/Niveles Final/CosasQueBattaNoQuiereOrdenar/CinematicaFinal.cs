@@ -12,9 +12,12 @@ public class CinematicaFinal : MonoBehaviour
     [SerializeField] Transform _camHolder;
     [SerializeField] Material _vignette;
     [SerializeField] GameObject _ballesta;
+    [SerializeField] PlayerBehaivour _player;
 
     [SerializeField] AudioSource _audioSource;
     [SerializeField] float _speedVolumen;
+
+    [SerializeField] GameObject _anim;
     
     void Start()
     {
@@ -47,6 +50,8 @@ public class CinematicaFinal : MonoBehaviour
         //activar el modelo del player con la animacion
         cam.transform.position = _camHolder.position;
         cam.transform.rotation = _camHolder.rotation;
+        _anim.SetActive(true);
+        _player.quieto = true;
         StartCoroutine(ActivateVignette());
     }
 

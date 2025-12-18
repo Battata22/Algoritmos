@@ -25,8 +25,10 @@ public class PlayerBehaivour : MonoBehaviour
     [SerializeField] float _gravedadMult;
 
     [SerializeField] Animator _animController;
-    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _audioSource, _audioSourceWalk;
     [SerializeField] ParticleSystem _particleSystem;
+
+    [SerializeField] AudioClip _caminata;
 
     public bool HasKey = false;
 
@@ -71,8 +73,22 @@ public class PlayerBehaivour : MonoBehaviour
         {
             _speed = _baseSpeed;
         }
-    }
 
+        if (!quieto)
+        {
+            if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)
+                 || Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+            {
+                if (_cc.isGrounded && !_audioSourceWalk.isPlaying)
+                {
+                    _audioSourceWalk.Play();
+                }
+
+            }
+        }
+
+    }
+    public bool quieto;
     private void FixedUpdate()
     {
         _model.FakeFixedUpdate();
@@ -103,5 +119,7 @@ public class PlayerBehaivour : MonoBehaviour
             PPFinales.instance.PrenderQuemado();
         }
     }
+
+    public AudioSource _saltoSource;
 
 }

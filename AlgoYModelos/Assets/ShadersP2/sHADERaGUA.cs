@@ -7,6 +7,7 @@ public class sHADERaGUA : MonoBehaviour
     [SerializeField] Material _PPAgua;
     [SerializeField] bool inWater;
     [SerializeField] GameObject player;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -19,6 +20,17 @@ public class sHADERaGUA : MonoBehaviour
         if (!inWater)
         {
             _PPAgua.SetFloat("_Activo", 0);
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+        else
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
     }
 
