@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Nivel 1/Nivel 1.unity
-    guid: 3300dfc7f73dad7478c4d1d71edd99bb
+    path: Assets/Niveles Final/Blocking/Nivel 1Blocking.unity
+    guid: a38b632301156bf43a77c0e307bc9ffd
   m_configObjects: {}
