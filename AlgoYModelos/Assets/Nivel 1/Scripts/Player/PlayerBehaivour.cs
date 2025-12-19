@@ -103,6 +103,13 @@ public class PlayerBehaivour : MonoBehaviour
         }
     }
 
+    [SerializeField] AudioClip _muerte;
+
+    public void MuerteSound()
+    {
+        _audioSource.PlayOneShot(_muerte);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Enemy>() != null)

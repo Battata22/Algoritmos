@@ -14,8 +14,6 @@ public class Enemigo : MonoBehaviour, IDamageable
     [SerializeField] float _closeEnoughRange;
     [SerializeField] Collider[] _overlapse;
 
-    [SerializeField] Puerta[] _puertas;
-
     [SerializeField] Animator _anim;
     [SerializeField] AudioSource _audioSource, _audioSourceAtaque;
     [SerializeField] AudioClip _ataque, _caminata, _muerte;
@@ -30,24 +28,12 @@ public class Enemigo : MonoBehaviour, IDamageable
         StartCoroutine(CheckForTarget());
     }
 
-    private void Update()
-    {
-
-    }
-
     IEnumerator Death()
     {
         ChangeAnimState(AnimState.Death);
         _audioSource.PlayOneShot(_muerte);
-
-        yield return new WaitForSeconds(1);
-
-        foreach (var puerta in _puertas)
-        {
-            puerta.ActivateDoor();
-            yield return new WaitForSeconds(1f);
-        }
-
+        FindFirstObjectByType<OpenSesame>().Muertos++;
+        yield return null;
     }
 
     void ChangeAnimState(AnimState state)
@@ -79,6 +65,7 @@ public class Enemigo : MonoBehaviour, IDamageable
             EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = false;
             _player.position = new Vector3(25.2f, 1.30f, -62.6f);
             EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>()._cc.enabled = true;
+            EntitiesManager.Instance.Player.GetComponent<PlayerBehaivour>().MuerteSound();
         }
     }
 
