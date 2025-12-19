@@ -65,7 +65,7 @@ public class PlayerBehaivour : MonoBehaviour
         {
             if (_speed == _baseSpeed)
             {
-                _speed = _baseSpeed * 2;
+                //_speed = _baseSpeed * 2;
 
             }
         }
